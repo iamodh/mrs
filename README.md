@@ -50,11 +50,13 @@ Marathon Application and Management System (User)
 
 ### 보안
 - 신청자의 개인 정보 보호가 우선되어야 함.
+
   - 신청자(user)와 관리자(admin) 어플리케이션을 분리 제작 후, 관리자에게 직접 admin 어플리케이션 제공.
 - Rails가 제공하는 기본 보안 솔루션 공부 후 보안 사각지대 확인 필요.
 
 ### 실시간 기능 제공
 - 신청이 완료된 후 실시간으로 신청 현황이 업데이트되어야 함.
+  
 - 모집 인원이 500명, 신청자가 499명인 상황에서 두 신청자가 동시에 신청했을 때 우선 신청 기준 확립 필요.
 
 ### 유효성 검사
@@ -67,13 +69,14 @@ Marathon Application and Management System (User)
 
 ### Framework
 - Ruby on Rails
+  
   - MVC 디자인 패턴을 기반으로 한 객체지향 웹 어플리케이션 제작 프레임워크로 기능 확장이 용이.
   - Active Record, form_with와 같이 빠른 개발에 필요한 Gem와 헬퍼 함수를 제공.
-  - 
 ### DB
 - PostgreSQL
   - 다중 버전 동시성 제어(MVVC) 지원으로 읽기 작업과 쓰기 작업이 서로를 방해하지 않음.
     - 트래픽이 몰리는 순간에도 매끄러운 데이터 확인이 가능.
+      
   - 다양한 인덱싱 알고리즘(GIN, Partial Index 등)을 사용하여 정렬, 필터링 기능 구현시 높은 성능 제공.
   - array, JSONB 등 다양한 데이터 유형 사용
     - 신청서 양식이 바뀌더라도 JSONB를 사용해 유연한 대처 가능.
@@ -84,6 +87,7 @@ Marathon Application and Management System (User)
 ### Deploy & Infra
 - Kamal
   - Rails가 사용하는 배포 도구로 쉬운 Docker 설정 가능.
+    
 - Docker
   - 어플리케이션 실행에 필요한 파일들 패키징
   - 하나의 서버에서 user, admin 컨테이너를 띄워 서버 비용 절감.
@@ -103,7 +107,6 @@ Marathon Application and Management System (User)
 
 - 12/25 (목)
   - user MVP 구현
-  - 
 - 12/26 (금)
   - admin MVP 구현
 
@@ -113,3 +116,19 @@ Marathon Application and Management System (User)
 - 12/29 (월)
   - 1차 블라인드 피드백
   - 피드백 적용
+
+## 설계
+<table><thead>
+  <tr>
+    <th>협력 모델</th>
+    <th>클래스 모델</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>
+      <img height="400" alt="image" src="https://github.com/user-attachments/assets/3bffce32-c2aa-4a22-bfaf-81f7037d9605" />
+    </td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
