@@ -32,15 +32,20 @@ class MarathonTest < ActiveSupport::TestCase
     @marathon.name = "A" * 31
 
     assert_not @marathon.valid?
-    assert_includes marathon.errors[:name], "length must be 1 ~ 20"
+    assert_includes @marathon.errors[:name], "length must be 1 ~ 30"
+  end
+
+  test "접수 기간 이전에는 접수가 불가능하다" do
+    @marathon.entry_start = 1.second.from_now
+    assert_not @marathon.open?
   end
 
   test "접수 기간이 지났으면 접수가 불가능하다" do
     @marathon.entry_end = 1.second.ago
-    assert_not @marathon.registrable?
+    assert_not @marathon.open?
   end
 
   test "접수 기간 내에는 접수가 가능하다" do
-    assert @marathon.registrable?
+    assert @marathon.open?
   end
 end
