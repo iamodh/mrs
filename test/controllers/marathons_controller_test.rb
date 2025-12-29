@@ -17,7 +17,7 @@ class MarathonsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create marathon" do
     assert_difference("Marathon.count") do
-      post marathons_url, params: { marathon: { course: @marathon.course, entry_end: @marathon.entry_end, entry_start: @marathon.entry_start, max_capacity: @marathon.max_capacity, name: @marathon.name } }
+      post marathons_url, params: { marathon: { entry_end: @marathon.entry_end, entry_start: @marathon.entry_start, name: @marathon.name } }
     end
 
     assert_redirected_to marathon_url(Marathon.last)
@@ -34,7 +34,7 @@ class MarathonsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update marathon" do
-    patch marathon_url(@marathon), params: { marathon: { course: @marathon.course, entry_end: @marathon.entry_end, entry_start: @marathon.entry_start, max_capacity: @marathon.max_capacity, name: @marathon.name } }
+    patch marathon_url(@marathon), params: { marathon: { entry_end: @marathon.entry_end, entry_start: @marathon.entry_start, name: @marathon.name } }
     assert_redirected_to marathon_url(@marathon)
   end
 

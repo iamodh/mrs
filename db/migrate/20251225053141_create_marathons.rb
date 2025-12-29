@@ -2,8 +2,6 @@ class CreateMarathons < ActiveRecord::Migration[8.1]
   def change
     create_table :marathons do |t|
       t.string :name
-      t.string :course
-      t.integer :max_capacity
       t.datetime :entry_start
       t.datetime :entry_end
 

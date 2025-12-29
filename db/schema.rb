@@ -12,11 +12,9 @@
 
 ActiveRecord::Schema[8.1].define(version: 2025_12_25_053141) do
   create_table "marathons", force: :cascade do |t|
-    t.string "course"
     t.datetime "created_at", null: false
     t.datetime "entry_end"
     t.datetime "entry_start"
-    t.integer "max_capacity"
     t.string "name"
     t.datetime "updated_at", null: false
   end

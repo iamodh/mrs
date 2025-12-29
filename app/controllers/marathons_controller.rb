@@ -65,6 +65,6 @@ class MarathonsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def marathon_params
-      params.expect(marathon: [ :name, :course, :max_capacity, :entry_start, :entry_end ])
+      params.expect(marathon: [ :name, :entry_start, :entry_end ])
     end
 end
