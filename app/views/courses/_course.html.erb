@@ -1,17 +1,16 @@
-<div id="<%= dom_id course %>">
-  <div>
-    <strong>Marathon:</strong>
-    <%= course.marathon_id %>
-  </div>
+<li id="<%= dom_id course %>">
 
   <div>
-    <strong>Name:</strong>
-    <%= course.name %>
+    <strong><%= course.name %></strong>
+    <span>(정원: <%= course.capacity %>명)</span>
   </div>
 
-  <div>
-    <strong>Capacity:</strong>
-    <%= course.capacity %>
-  </div>
+  <% if local_assigns.fetch(:show_actions, true) %>
+    <div>
+      <%# 정원이 꽉 찼을 경우 버튼 비활성화 필요 %>
+      <%= link_to "Show this course", course_path(course) %>
+      <%= link_to "신청하기", new_course_registration_path(course) %>
+    </div>
+  <% end %>
 
-</div>
+</li>
