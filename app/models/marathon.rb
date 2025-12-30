@@ -1,4 +1,6 @@
 class Marathon < ApplicationRecord
+  has_many :courses, dependent: :destroy
+
   validates :name, presence: true, length: { in: 1..30, message: "length must be 1 ~ 30" }
   validates :entry_start, presence: true
   validates :entry_end, presence: true

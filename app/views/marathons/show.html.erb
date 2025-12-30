@@ -2,9 +2,13 @@
 
 <%= render @marathon %>
 
+<ul>
+  <%= render @marathon.courses %>
+</ul>
+
 <div>
   <%= link_to "Edit this marathon", edit_marathon_path(@marathon) %> |
   <%= link_to "Back to marathons", marathons_path %>
-
+  
   <%= button_to "Destroy this marathon", @marathon, method: :delete %>
 </div>
