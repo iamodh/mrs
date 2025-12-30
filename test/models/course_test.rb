@@ -19,7 +19,7 @@ class CourseTest < ActiveSupport::TestCase
     assert_not @course.valid?
     assert_includes @course.errors[:name], "can't be blank"
   end
-  
+
   test "최소 모집 인원은 1명이여야 한다" do
     @course.capacity = 0
 
@@ -29,7 +29,7 @@ class CourseTest < ActiveSupport::TestCase
 
   test "이름이 10글자 이상인 경우 오류가 발생한다" do
     @course.name = "A" * 11
-    
+
     assert_not @course.valid?
     assert_includes @course.errors[:name], "length must be 1 ~ 10"
   end
